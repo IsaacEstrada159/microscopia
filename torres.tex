@@ -1,0 +1,101 @@
+\documentclass{article}
+\setlength{\parskip}{5pt} % esp. entre parrafos
+\setlength{\parindent}{0pt} % esp. al inicio de un parrafo
+\usepackage{amsmath} % mates
+\usepackage[sort&compress,numbers]{natbib} % referencias
+\usepackage{url} % que las URLs se vean lindos
+\usepackage[top=25mm,left=20mm,right=20mm,bottom=25mm]{geometry} % margenes
+\usepackage{hyperref} % ligas de URLs
+\usepackage{graphicx} % poner figuras
+\usepackage[spanish]{babel} % otros idiomas
+\usepackage[utf8]{inputenc} % alparecer son los acentos
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\usepackage[spanish, es-nodecimaldot]{babel}
+\usepackage{color}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\renewcommand{\algorithmicrequire}{\textbf{Entrada:}}
+\renewcommand{\algorithmicensure}{\textbf{Salida:}}
+\usepackage{subcaption}
+\usepackage{amsfonts}
+\usepackage{hyperref}
+ \hypersetup{
+     colorlinks=true,
+     linkcolor=blue,
+     filecolor=blue,
+     citecolor = blue,      
+     urlcolor=cyan,
+     }
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{color}
+\author{I E G} % author
+\title{Tarea dispercion de electrones} % titulo
+\date{\today}
+
+\begin{document} % inicia contenido
+
+\maketitle % cabecera
+
+\begin{abstract} % resumen
+Dado que el electrón es una partícula con una masa muy pequeña y cargada negativamente, es muy susceptible a ser desviada al pasar cerca de otros electrones o de núcleos cargados positivamente. Como ya se ha visto, esta dispersión de los electrones al pasar a través de una muestra es la que permite obtener imágenes de TEM.
+
+
+\begin{figure} [h!]% figura
+    \centering
+    \includegraphics[width=129mm]{fig1.png} % archivo
+    \caption{Diferentes tipos de haces resultantes de la interacción de los electrones del haz incidente con una muestra fina.}
+    \label{figura1}
+\end{figure}
+
+\end{abstract}
+
+
+\section{Desarrollo}
+La dispersión de los electrones puede producirse de dos formas:
+
+Elástica: los electrones no pierden energía en la interacción. Esta interacción se suele producir para ángulos de entre 1º y 10º y para bajas energías. El conjunto de electrones resultantes suelen ser coherentes (respecto a su carácter ondulatorio, la coherencia indica la alineación de las longitudes de onda de un conjunto de ondas). La dispersión elástica pierde coherencia a medida que el ángulo sobrepasa los 10º. Los electrones dispersados elásticamente suponen la mayor fuente de contraste en el TEM, y también crean la mayor parte de la intensidad de los patrones de difracción (DPs).
+
+Inelástica: los electrones pierden energía en la interacción. Se sueleproducir para ángulos pequeños, menores a 1º, y para electrones de alta energía. El paquete de electrones resultante suele ser incoherente. Este tipo de interacción es interesante en cuanto a la información que nos aporta sobre la composición química de la muestra, que no se puede obtener a partir de los electrones dispersados elásticamente.
+
+Para referirnos a la probabilidad de que un electrón padezca una dispersión elástica o inelástica utilizamos el concepto de cross section o sección eficaz. Esto es un área imaginaria cuya fracción respecto al área total es igual a la probabilidad de que el fenómeno ocurra. Así, si la probabilidad de que un electrón interaccione inelásticamente con la muestra es de 0,1, la fracción de sección eficaz respecto al área será la misma, aunque ésta no representa ninguna área real. Por lo tanto, cada posible interacción tiene una cross section o sección eficaz (), que depende de la energía de la partícula (en nuestro caso, la energía del haz de electrones) y, como mayor sea, mayor será la probabilidad de que ocurra esta interacción.
+
+Para un espécimen observado bajo el TEM, el número de eventos donde el electrón sufre desviaciones por unidad de área a lo largo de su trayectoria a través de la muestra es:
+
+\begin{align*}
+\sigma_t_o_t_a_l(t) &= \frac{N_0*atomos*\rho*t}{A}
+\end{align*}
+
+
+
+
+.
+
+A pesar de toda la información anterior, los valores que podemos conocer de σ y λ siguen siendo imprecisos, especialmente para energías de 100-400 KeV utilizadas en TEM. Por lo tanto, lo que se hace es una simulación Monte Carlo para predecir la trayectoria del electrón a través de una capa fina: este método consiste básicamente en la utilización de números aleatorios en los programas computacionales, de manera que el resultado siempre estará regido por la estadística.
+
+\begin{figure} [h!]% figura
+    \centering
+    \includegraphics[width=129mm]{fig2.png} % archivo2
+    \caption{Simulación de Monte Carlo para la dispersión de electrones (haz de 1000 electrones de energía 100 KeV) a través de una capa fina de Cu (A) y Au (B). Se puede observar un aumento en el ángulo de dispersión para la muestra de mayor número atómico (oro).}
+    \label{figura1}
+\end{figure}
+
+La difracción de rayos X se produce porque estos son desviados por los electrones presentes en el material, ya que la carga negativa de los electrones interacciona con el campo electromagnético de los rayos X. Los electrones responden al campo aplicado del flujo de rayos X oscilando con el período de este haz, y las partículas cargadas aceleradas resultantes emiten su propio campo electromagnético, de idéntica longitud de onda y fase que el de los rayos X incidentes. El campo resultante, que se propaga radialmente desde cada fuente de dispersión, se denomina la onda difractada.
+
+Por su parte, los electrones se difractan tanto por los electrones como por los núcleos presentes en la muestra a estudiar, al interactuar las cargas negativas con los campos electromagnéticos locales del espécimen. De esta forma, los electrones del haz son dispersados de una forma directa por la muestra (no se trata de un intercambio de campo a campo como en el caso de los rayos X). Así, los electrones son más fuertemente dispersados que los rayos X.
+
+\begin{figure} [ht] % figura
+    \centering
+    \includegraphics[width=129mm]{fig4.png} 
+    \caption{El haz incidente de electrones en la muestra se convierte en un conjunto de de haces desviados por diferentes fenómenos.}
+    \label{figura1}
+\end{figure}
+
+
+\bibliography{bib}
+\bibliographystyle{plainnat}
+
+\end{document}
